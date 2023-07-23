@@ -3,6 +3,7 @@
 {% block content %}
 <h1>Home Template!</h1>
 <div>
+  <a href="{% url 'create-room' %}">Create Room</a>
   <div>
     <h2>Rooms</h2>
     <ul>
@@ -11,6 +12,8 @@
         <span>@{{ room.host.username }}</span>
         <a href="{% url 'room' room.id %}">{{room.id}} - {{ room.name}}</a>
         <small>{{ room.topic.name }}</small>
+        <a href="{% url 'update-room' room.id %}">Update</a>
+        <a href="{% url 'delete-room' room.id %}">Delete</a>
       </li>
       {% endfor %}
     </ul>
